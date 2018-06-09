@@ -1,0 +1,53 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" style="margin-top : 7px ; font-size: 25px">INSTA-LIKE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLinkActive="active" routerLink="/"> <font size="+0.05">Home </font> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active" *ngIf="isLoggedIn" >
+        <a class="nav-link"  routerLinkActive="active" routerLink="/allposts"> <font size="+0.05">All Posts </font> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active" *ngIf="isLoggedIn">
+        <a class="nav-link"  routerLinkActive="active" routerLink="/favorites"> <font size="+0.05">Favorites </font> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active" *ngIf="isLoggedIn">
+        <a class="nav-link"  routerLinkActive="active" routerLink="/following"> <font size="+0.05">Following </font><span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active" *ngIf="isLoggedIn">
+        <a class="nav-link" aria-activedescendant="" routerLink="/myposts"> <font size="+0.05">My Posts </font><span class="sr-only">(current)</span></a>
+      </li>
+
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+
+      <li class="dropdown" *ngIf="isLoggedIn">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript: void(0)"><span class="user-name-display"><font size="+0.05" color="black">{{name}}</font></span>
+          <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:void(0)"><span class="user-title">Email: </span><span class="user-data">{{email}}</span></a></li>
+              <li><a href="javascript:void(0)"><span class="user-title">Uid: </span><span class="user-data">{{uid}}</span></a></li>
+            </ul>
+      </li>
+
+      <li class="nav-item active" *ngIf="!isLoggedIn">
+        <a class="nav-link" routerLinkActive="active" routerLink="/signup"> <font size="+0.05">Sign up </font><span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active" *ngIf="!isLoggedIn">
+        <a class="nav-link" routerLinkActive="active" routerLink="/login"> <font size="+0.05">Login </font><span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item active" *ngIf="isLoggedIn" (click)="onLogout()" >
+        <a class="nav-link" routerLinkActive="active" routerLink="/logout"> <font size="+0.05">Logout</font> <span class="sr-only">(current)</span></a>
+      </li>
+
+    </ul>
+
+  </div>
+</nav>
